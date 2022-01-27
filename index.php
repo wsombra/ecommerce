@@ -7,20 +7,23 @@ require_once("vendor/autoload.php");
 // namespaces - rotas
 use \Slim\Slim;
 use \Hcode\Page;
+use \Hcode\PageAdmin;
 $app = new \Slim\Slim();
 
 $app->config('debug', true);
 
+//Rota Principal 
 $app->get('/', function() {
 
 	$page  = new Page();
 	$page->setTpl("index");
-	//echo "OK";
-// $sql = new Hcode\DB\Sql();
-// $results = $sql->select("SELECT * FROM tb_users");
-// echo json_encode($results);
+});
 
+//Rota Adm
+$app->get('/admin', function() {
 
+	$page  = new PageAdmin();
+	$page->setTpl("index");
 });
 
 $app->run();
