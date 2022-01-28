@@ -11,7 +11,4 @@ class PageAdmin extends Page {
 		parent::__construct($opt, $tpl_dir);
 	}
 }
-
-
-
 ?>

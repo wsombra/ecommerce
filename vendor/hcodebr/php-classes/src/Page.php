@@ -10,6 +10,8 @@ class Page{
 	private $options=[];
 //Opções default
 	private $defaults=[
+		"header" => true,
+		"footer" => true,
 		"data"=>[]
 	]; 
 	//Métodos construtores __contruct() e __destruct()
@@ -31,8 +33,9 @@ class Page{
 		// create the Tpl object
 		$this->tpl = new Tpl;
 		$this->setData($this->options['data']);
-		//Desenhando 
-		$this->tpl->draw("header");
+		//Desenhando
+		if($this->options["header"]===true)$this->tpl->draw("header"); 
+		
 	}
 
 	public function setData($data = array())
@@ -52,16 +55,9 @@ class Page{
 	}
 	public function __destruct(){
 		//Desenhando 
-		$this->tpl->draw("footer", false);
+		// if ...
+		if($this->options["footer"]===true)$this->tpl->draw("footer");
 
 	}
-
-
-
-
-
-
-
-
 }
 ?>
